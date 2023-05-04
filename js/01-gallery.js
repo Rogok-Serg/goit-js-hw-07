@@ -25,20 +25,30 @@ function onClickImg(event) {
   if (event.target.nodeName !== 'IMG') {
     return
   }
-  const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}" width="800" height="600">
-`);
-  instance.show();
-  galleryRef.addEventListener('keydown', onClickModalClose);
+ 
+ 
+    const instance = basicLightbox.create(`
+      <img src="${event.target.dataset.source}">
+  `);
+    instance.show();
+    galleryRef.addEventListener('keydown', onClickModalClose);
   
-  function onClickModalClose(event) {
-    if (event.code === "Escape") {
-      instance.close()
-    } 
-  };
+    function onClickModalClose(event) {
+      if (event.code === "Escape") {
+        instance.close()
+      } 
+    };
 };
-
-
+  
+//  window.addEventListener('keydown', const instance = basicLightbox.create(`
+//     <img src="${event.target.dataset.source}" width="800" height="600">
+// `, {
+//       onShow: (instance) =>
+//         console.log('onShow', instance),
+//       onClose: (instance) =>
+//         console.log('onClose', instance)
+//     }));
+// }
 
 
 console.log(galleryItems);
